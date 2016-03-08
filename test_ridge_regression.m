@@ -9,6 +9,10 @@
 % Load data
 load('diabetes.mat');
 
+% Add a bias term
+x_train = [ones(size(x_train,1),1) , x_train];
+x_test = [ones(size(x_test,1),1) , x_test];
+
 % Compute the MSE for each lambda value on training and testing data
 Lambda = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1, 10];
 ntests = numel(Lambda);
